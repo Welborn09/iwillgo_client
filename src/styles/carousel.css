@@ -1,0 +1,25 @@
+
+/* Carousel */
+.cover {
+    min-height: 700px !important;
+    position: relative !important;
+    z-index: 0 !important;
+    display: grid !important;
+    align-items: center !important;
+  }
+  
+  .slide1 {
+    background: url(./../assets/images/feed_my_sheep.jpg) no-repeat;
+    background-size: cover !important;  
+  }
+  
+  .slide2 {
+    background: url(./../assets/images/cloth_my_sheep.jpg) no-repeat;
+    background-size: cover !important;
+  }
+  
+  .slide3 {
+    background: url(./../assets/images/clean_community.jpg) no-repeat;
+    background-size: cover !important;
+  }
+  /* Carousel */
