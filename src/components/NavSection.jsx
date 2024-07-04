@@ -1,3 +1,6 @@
+/*
+    CREATED AND WRITTEN BY STEVE WELBORN
+*/
 import React from 'react';
 
 import Logo from './../assets/images/logo_v2.jpg'

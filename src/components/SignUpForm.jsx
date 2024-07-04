@@ -1,3 +1,6 @@
+/*
+    CREATED AND WRITTEN BY STEVE WELBORN
+*/
 import React, { useState } from 'react';
 import { Form } from '../styles/StyledComponents';
 import { SignUpFormContainer, MainDiv, PanelContainer, LeftPanel, LeftSubDiv,
@@ -11,6 +14,8 @@ import { SignUpFormContainer, MainDiv, PanelContainer, LeftPanel, LeftSubDiv,
         } from './../styles/signUpForm.styles';
 import PasswordInputIcon from './PasswordInputIcon';
 import Logo from './../assets/images/logo_v2.jpg'
+import { Member } from './../models/member.model.js'
+import { saveMember } from '../Apis/Member.api.js';
 
 
 const SignUpForm = () => {
@@ -31,10 +36,21 @@ const SignUpForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const submit = (e) => {
     e.preventDefault();
     // Handle form submission (e.g., send data to backend)
     console.log(formData);
+    var m = new Member();
+    m.firstname = formData.firstname;
+    m.lastname = formData.lastname;
+    m.email = formData.email;
+    m.password = formData.password;
+    m.confirm = true;
+
+    saveMember(m)
+        .then(() => {
+            //if successful we move to login page
+        });
   };
 
   return (
@@ -49,7 +65,7 @@ const SignUpForm = () => {
                         <ProfileDiv>
                             <ProfileHeaderH2>Create your personal account</ProfileHeaderH2>
                             <ProfileDetails>
-                                <Form onSubmit={handleSubmit}>
+                                <Form onSubmit={submit}>
                                     <ProfileFirstLast>
                                         <ProfileInputContainer>
                                             <InputPanel>
@@ -154,7 +170,7 @@ const SignUpForm = () => {
                                             </ConfirmContainer>
                                     </ConfirmPanel>
                                     <ContinueButtonPanel>
-                                        <ContinueButton>Continue</ContinueButton>
+                                        <ContinueButton type='Submit'>Continue</ContinueButton>
                                     </ContinueButtonPanel>                                    
                                 </Form>
                             </ProfileDetails>

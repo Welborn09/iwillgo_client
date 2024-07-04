@@ -1,3 +1,6 @@
+/*
+    CREATED AND WRITTEN BY STEVE WELBORN
+*/
 import React from 'react';
 import styled from 'styled-components';
 import TimelineItem from './TimelineItem';

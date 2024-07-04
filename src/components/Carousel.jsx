@@ -1,3 +1,6 @@
+/*
+    CREATED AND WRITTEN BY STEVE WELBORN
+*/
 import React from 'react';
 import './../styles/carousel.css';
 import { Swiper, SwiperSlide } from 'swiper/react';

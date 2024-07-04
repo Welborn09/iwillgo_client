@@ -1,3 +1,6 @@
+/*
+    CREATED AND WRITTEN BY STEVE WELBORN
+*/
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import NavSection from './NavSection';
