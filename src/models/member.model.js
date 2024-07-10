@@ -7,6 +7,9 @@ export class Member {
     firstname;
     lastname;
     email;
+    city;
+    state;
+    zip;
     confirm;
     password;
 
@@ -16,10 +19,13 @@ export class Member {
         this.lastname = lastname;
         this.email = email;
         this.confirm = confirm;
+        this.city = '',
+        this.state = '';
+        this.zip = '';
     }
 
     static fromJSON(json) {
-        return new Member(json.id, json.firstname, json.lastname, json.email, json.confirm);
+        return new Member(json.id, json.firstname, json.lastname, json.email, json.city, json.state, json.zip, json.confirm);
     }
 
     toJSON() {
@@ -28,8 +34,11 @@ export class Member {
           firstname: this.firstname,
           lastname: this.lastname,
           email: this.email,
+          city: this.city,
+          state: this.state,
+          zip: this.zip,
           confirm: this.confirm,
-          password: this.password,
+          password: this.password,          
         };
       }
 }

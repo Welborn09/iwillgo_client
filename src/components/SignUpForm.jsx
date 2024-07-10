@@ -2,7 +2,7 @@
     CREATED AND WRITTEN BY STEVE WELBORN
 */
 import React, { useState } from 'react';
-import { Form } from '../styles/StyledComponents';
+import { Form } from '../styles/Signup.styles.js';
 import { SignUpFormContainer, MainDiv, PanelContainer, LeftPanel, LeftSubDiv,
          HeaderDiv, ProfileDiv, ProfileDetails, ProfileFirstLast, ProfileHeaderH2,
          ProfileInputContainer, PasswordPanel, PasswordViewer,
