@@ -27,9 +27,9 @@ const EventsGridComponent = ({onShowModal}) => {
         setLoading(true);
         fetchOpportunities()
             .then((response) => {
-                setLoading(false);
                 console.log('*** events response ***', response);
                 sortData(response);
+                setLoading(false);
             });
     }
 

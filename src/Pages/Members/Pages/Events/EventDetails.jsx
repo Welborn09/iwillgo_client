@@ -26,9 +26,9 @@ const EventDetails = ({eventId}) => {
         setLoading(true);
         fetchOpportunity(eventId)
             .then((response) => {
-            setLoading(false);
             console.log('*** eventDetails response ***', response);
             setEventDetails(response);
+            setLoading(false);
         });
     }
 
@@ -64,12 +64,15 @@ const EventDetails = ({eventId}) => {
                         <MemberDetailsH3>Description</MemberDetailsH3>
                         <MemberDetailsField>{eventDetails.description}</MemberDetailsField>
                         <MemberDetailsH3>Project Details</MemberDetailsH3>
-                        <ul>
+                        <MemberDetailsField>Location: {eventDetails.address}, {eventDetails.city}, {eventDetails.state} {eventDetails.zip}</MemberDetailsField>
+                        <MemberDetailsField>Team Leader: {eventDetails.hostId.firstName} {eventDetails.hostId.lastName}</MemberDetailsField>
+
+                        {/* <ul>
                         <li>Location: {eventDetails.address}, {eventDetails.city}, {eventDetails.state} {eventDetails.zip}</li>
-                        <li>Dolor Sit Amet</li>
+                        <li>Team Leader: {eventDetails.hostId.firstName} {eventDetails.hostId.lastName}</li>
                         <li>Consectetur</li>
                         <li>Adipiscing Elit</li>
-                        </ul>
+                        </ul> */}
                     </MemberDetailsRightPanel>
             
                 </MemberDetailsRow>
