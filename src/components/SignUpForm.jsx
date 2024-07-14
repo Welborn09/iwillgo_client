@@ -16,6 +16,7 @@ import PasswordInputIcon from './PasswordInputIcon';
 import Logo from './../assets/images/logo_v2.jpg'
 import { Member } from './../models/member.model.js'
 import { saveMember } from '../Apis/Member.api.js';
+import { RegisterMember } from '../models/register.model.js';
 
 
 const SignUpForm = () => {
@@ -40,12 +41,11 @@ const SignUpForm = () => {
     e.preventDefault();
     // Handle form submission (e.g., send data to backend)
     console.log(formData);
-    var m = new Member();
+    var m = new RegisterMember();
     m.firstname = formData.firstname;
     m.lastname = formData.lastname;
     m.email = formData.email;
     m.password = formData.password;
-    m.confirm = true;
 
     saveMember(m)
         .then(() => {
