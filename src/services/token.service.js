@@ -19,3 +19,8 @@ import {jwtDecode} from 'jwt-decode';
         return null;
     };
 
+    export const setToken = (token) => {
+        console.log('*** saving token ***', token);
+        localStorage.setItem('token', token);
+    };
+
