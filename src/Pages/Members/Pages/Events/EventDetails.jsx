@@ -2,8 +2,6 @@
     CREATED AND WRITTEN BY STEVE WELBORN
 */
 import React, { useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import { Modal, Button } from 'react-bootstrap';
 import { fetchOpportunity } from '../../../../Apis/Opportunities.api';
 import opportunityModel from '../../../../models/opportunity.model';
 import { MemberDetailsContainer, MemberDetailsHeader, MemberDetailsTitle, MemberDetailsRow, MemberDetailsLeftPanel,
@@ -13,13 +11,12 @@ import { MemberDetailsContainer, MemberDetailsHeader, MemberDetailsTitle, Member
  import backgroundImage from './../../assets/images/trash_cleanup.jpg';
 
 const EventDetails = ({eventId}) => {    
-    const [eventDetails, setEventDetails] = useState(new opportunityModel);
+    const [eventDetails, setEventDetails] = useState(null);
     const [loading, setLoading] = useState(false);
     
-    useEffect(() => {                
-        if (!loading)
-            fetchEvent();
-    }, []);
+    useEffect(() => {           
+        fetchEvent();
+    }, [eventId]);
 
     const fetchEvent = () => {
         console.log('*** incoming eventId ***', eventId);
@@ -32,15 +29,17 @@ const EventDetails = ({eventId}) => {
         });
     }
 
+    if (loading) {
+        return <MemberDetailsTitle>...Data Loading.....</MemberDetailsTitle>;
+    }
+
+    if (!eventDetails) {
+        return <MemberDetailsTitle>No event details available</MemberDetailsTitle>;
+    }
+
     return (
         <>
           <MemberDetailsContainer>
-            {loading ? (
-            <MemberDetailsTitle>
-                ...Data Loading.....
-            </MemberDetailsTitle>
-           ) : (
-            <>
                 <MemberDetailsHeader>
                     <MemberDetailsTitleDiv>
                         <MemberDetailsTitle>{eventDetails.eventName}</MemberDetailsTitle>
@@ -76,10 +75,7 @@ const EventDetails = ({eventId}) => {
                     </MemberDetailsRightPanel>
             
                 </MemberDetailsRow>
-            </>            
-           )}; 
-          </MemberDetailsContainer>
-           
+          </MemberDetailsContainer>           
         </>
     );
   }

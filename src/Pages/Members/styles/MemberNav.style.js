@@ -15,35 +15,29 @@ export const NavMainSection = styled.section`
 
 export const NavBar = styled.nav.attrs({
     className: 'navbar navbar-expand-lg navbar-light py-lg-2 py-2'
-})`
-    
-`;
+})``;
 
 export const Container = styled.div.attrs({
     className: 'container'
 })`
-    display: flex;
+   display: flex;
     flex-wrap: inherit;
     align-items: center;
     justify-content: space-between;
-	
-	@media (min-width: 1400px) {
-    ${{NavBar}}.navbar > .container {
+    
+    @media (min-width: 1400px) {
         max-width: 1320px;
     }
-	
-	@media (min-width: 1200px) {
-    ${{NavBar}}.navbar > .container {
+    
+    @media (min-width: 1200px) {
         max-width: 1140px;
     }
-	
-	@media (min-width: 768px) {
-    ${{NavBar}}.navbar > .container {
+    
+    @media (min-width: 768px) {
         max-width: 720px;
     }
-	
-	@media (min-width: 576px) {
-    ${{NavBar}}.navbar > .container {
+    
+    @media (min-width: 576px) {
         max-width: 540px;
     }
 `;
@@ -94,12 +88,12 @@ export const NavToggle = styled.button.attrs({
   }
   
   @media (min-width: 992px) {
-    ${{NavBar}}.navbar-light > .navbar-toggler {
+    ${NavBar}.navbar-light > .navbar-toggler {
         display: none;
     }
 	
 	@media (prefers-reduced-motion: reduce) {
-    ${{NavBar}}.navbar-toggler {
+    ${NavBar}.navbar-toggler {
         transition: none;
     }
 }
@@ -146,7 +140,7 @@ export const NavCollapse = styled.div.attrs({
     }
 
     @media (min-width: 992px) {
-    ${{NavBar}}.navbar-expand-lg > .navbar-collapse {
+    ${NavBar}.navbar-expand-lg > .navbar-collapse {
         display: flex !important;
         flex-basis: auto;
     }
@@ -173,7 +167,7 @@ export const NavUl = styled.ul.attrs ({
 	}
 	
 	@media (min-width: 992px) {
-    ${{NavBar}}.navbar-expand-lg > .navbar-nav {
+    ${NavBar}.navbar-expand-lg > .navbar-nav {
         flex-direction: row;
     }
 }

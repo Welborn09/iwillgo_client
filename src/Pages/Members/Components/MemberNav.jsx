@@ -24,16 +24,13 @@ const MemberNavSection = () => {
             <NavCollapse id="navbarSupportedContent">
                 <NavUl>
                   <NavListItem>
-                    <NavListLink href="/">Home</NavListLink>
+                    <NavListLink href="/Member/Home">Home</NavListLink>
                   </NavListItem>
                   <NavListItem>
-                    <NavListLink href="/services">Services</NavListLink>
+                    <NavListLink href="/services">My Events</NavListLink>
                   </NavListItem>
                   <NavListItem>
-                    <NavListLink href="/about">About</NavListLink>
-                  </NavListItem>
-                  <NavListItem>
-                    <NavListLink href="/about">Username Here</NavListLink>
+                    <NavListLink href="/profile">Username Here</NavListLink>
                   </NavListItem>
                 </NavUl>            
             </NavCollapse>

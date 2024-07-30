@@ -12,7 +12,7 @@ const MemberHeaderSection = () => {
                 <HeaderContainer>
                     <HeaderH2>Events</HeaderH2>
                     <HeaderP>
-                        <HomeLink href='/'>Home</HomeLink> &nbsp; / &nbsp; Events
+                        
                     </HeaderP>
                 </HeaderContainer>                
             </Breadcrumb>

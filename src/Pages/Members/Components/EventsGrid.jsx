@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /*
     CREATED AND WRITTEN BY STEVE WELBORN
 */
@@ -6,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { EventsGridContainer, EventsGrid, EventsGridMain, GridItem, GridItemCard, EventDetailsLink,
          EventItemImage, GridItemColumn2, GridItemDateUL, GridItemDateLI,
          EventDetailsLinkLI, GridItemBody, GridItemCardTitle, GridItemSubBody, GridItemSubBodyColumn1,
-         GridItemSubBodyColumn1P, GridItemSubBodyColumnLink, 
+         GridItemSubBodyColumn1P, GridItemSubBodyColumnLink, EventDetailsLinkSpan,
          EventsGridSection} from '../styles/Member.styles';
 import { fetchOpportunities } from '../../../Apis/Opportunities.api';
 import Card1 from './../assets/images/trash_cleanup.jpg';
@@ -42,19 +43,18 @@ const EventsGridComponent = ({onShowModal}) => {
       }
 
     const ConvertDate = (date) => {
-        console.log('*** incoming date ***', date); 
+        //console.log('*** incoming date ***', date); 
         var dt = new Date(date);
         const day = dt.getDate();
         const month = dt.toLocaleString('default', { month: 'long' });
         var ret = day + ' ' + month;
-        console.log(ret);
+        //console.log(ret);
         return ret;
     };
 
     const handleClick = (e, eventId) => {
         e.preventDefault();                
         console.log('*** handleClick ***', eventId);
-        //navigate({ pathname: '/Member/Events/EventDetails', search: '?eventId=' + eventId});
         onShowModal(<EventDetails eventId={eventId} />);
     };  
 
@@ -73,18 +73,18 @@ const EventsGridComponent = ({onShowModal}) => {
                     <EventsGridContainer>
                         <EventsGrid>
                             { events.map(item =>
-                                    <GridItem>
+                                    <GridItem key={item.eventID}>
                                         <GridItemCard>
-                                            <EventDetailsLink href={createLink(item.eventID)}>
+                                            <EventDetailsLink onClick={(e) => handleClick(e, item.eventID)}>
                                                 <EventItemImage src={Card1} />
                                             </EventDetailsLink>
                                             <EventDetailsLink>
                                                 <GridItemColumn2>
                                                     <GridItemDateUL>
                                                         <GridItemDateLI>
-                                                            <EventDetailsLinkLI onClick={(e) => handleClick(e, item.eventID)}>
+                                                            <EventDetailsLinkSpan onClick={(e) => handleClick(e, item.eventID)}>
                                                                 {ConvertDate(item.eventDate)}
-                                                            </EventDetailsLinkLI>
+                                                            </EventDetailsLinkSpan>
                                                         </GridItemDateLI>
                                                     </GridItemDateUL>
                                                 </GridItemColumn2>
@@ -95,7 +95,7 @@ const EventsGridComponent = ({onShowModal}) => {
                                                 <GridItemSubBodyColumn1>
                                                     <GridItemCardTitle>{item.eventName}</GridItemCardTitle>
                                                     <GridItemSubBodyColumn1P>{item.eventTimeFrom}-{item.eventTimeTo} &nbsp; {item.city}, {item.state}</GridItemSubBodyColumn1P>
-                                                    <GridItemSubBodyColumnLink href={createLink(item.eventID)}>Read More</GridItemSubBodyColumnLink>
+                                                    <GridItemSubBodyColumnLink onClick={(e) => handleClick(e, item.eventID)}>Read More</GridItemSubBodyColumnLink>
                                                 </GridItemSubBodyColumn1>
                                             </GridItemSubBody>
                                         </GridItemBody>

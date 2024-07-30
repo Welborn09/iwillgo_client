@@ -15,13 +15,16 @@ export const fetchOpportunities = async () => {
     return Array.isArray(response.data.items) ? response.data.items : [];
   } catch (error) {
     console.error("There was an error fetching the opportunities!", error);
-    throw [];
+    if (error.response.status === 401) {
+      window.location.href = '/login';
+    }
+    return[];
   }
 };
 
 export const fetchOpportunity = async (eventId) => {
   try {
-    const response = await axios.get(GetOpportunityByIdSource.replace('{eventId', eventId),  
+    const response = await axios.get(GetOpportunityByIdSource.replace('{eventId}', eventId),  
     { headers: { 'Authorization': 'Bearer ' + getToken() } } );
     console.log('*** opportunity response ***', response);
     return  response.data;

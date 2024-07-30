@@ -153,6 +153,19 @@ export const EventDetailsLink = styled.a`
     color: #000000;
     text-decoration: none;
     background-color: transparent;
+    cursor: pointer;
+`;
+
+export const EventDetailsLinkSpan = styled.span`
+    color: #fff;
+    padding: 8px 10px;
+    font-size: 23px;
+    line-height: 28px;
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
 `;
 
 export const EventItemImage = styled.img`
